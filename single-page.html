@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sinle-Page</title>
+</head>
+<style>div { display:none; }</style>
+<script>
+    function showPage(page) {
+        // TRY 3
+        document.querySelectorAll('div').forEach( div => {
+            div.style.display = 'none';
+        } )
+        // TRY 1
+        document.querySelector(`#${page}`).style.display = 'block';
+        // TRY 2
+        // try the function in the console. E.g: showPage('page1'); ... showPage('page2');
+        // We realize to undisplay all <div> in function.
+    }
+    // TRY 4
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('button').forEach( function(button) {
+            button.onclick = function() {
+                showPage(this.dataset.page);
+            }
+        } )
+    })
+/*
+// Shows one page and hides the other two
+function showPage(page) {
+
+    // Hide all of the divs:
+    document.querySelectorAll('div').forEach(div => {
+        div.style.display = 'none';
+    });
+
+    // Show the div provided in the argument
+    document.querySelector(`#${page}`).style.display = 'block';
+}
+
+// Wait for page to loaded:
+document.addEventListener('DOMContentLoaded', function() {
+
+    // Select all buttons
+    document.querySelectorAll('button').forEach(button => {
+
+        // When a button is clicked, switch to that page
+        button.onclick = function() {
+            showPage(this.dataset.page);
+        }
+    
+*/
+</script>
+<body>
+    <button data-page="page1">Page 1</button>
+    <button data-page="page2">Page 2</button>
+    <button data-page="page3">Page 3</button>
+    <div id="page1">
+        <h1>Page 1</h1>
+    </div>
+    <div id="page2">
+        <h1>Page 2</h1>
+    </div>
+    <div id="page3">
+        <h1>Page 3</h1>
+    </div>
+
+</body>
+</html>
